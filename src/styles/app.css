@@ -1,0 +1,44 @@
+@import 'tailwindcss';
+
+@theme {
+  --animate-golf-ball: golf-ball 1.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  --animate-text-reveal: text-reveal 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+
+  @keyframes golf-ball {
+    0% {
+      transform: translate(-150%, 100%) scale(2);
+      opacity: 0;
+    }
+    30% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(400%, -400%) scale(0.2);
+      opacity: 0;
+    }
+  }
+
+  @keyframes text-reveal {
+    0% {
+      letter-spacing: -0.5em;
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      letter-spacing: normal;
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@layer base {
+  html,
+  body {
+    @apply text-zinc-900 bg-zinc-50 dark:bg-black dark:text-zinc-200;
+  }
+
+  .using-mouse * {
+    outline: none !important;
+  }
+}
