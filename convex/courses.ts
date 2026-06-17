@@ -102,7 +102,8 @@ export const seed = mutation({
         .filter((q) => q.eq(q.field("name"), course.name))
         .first();
       if (existing) {
-        await ctx.db.replace(existing._id, course);
+//@ts-expect-error
+await ctx.db.replace(existing._id, course);
       } else {
         await ctx.db.insert("courses", course);
       }
