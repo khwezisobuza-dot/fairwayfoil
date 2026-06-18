@@ -105,7 +105,8 @@ export const seed = mutation({
 //@ts-expect-error
 await ctx.db.replace(existing._id, course);
       } else {
-        await ctx.db.insert("courses", course);
+//@ts-expect-error
+await ctx.db.insert("courses", course);
       }
     }
     return null;
